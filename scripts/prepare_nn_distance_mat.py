@@ -50,7 +50,7 @@ def load_dist_mat(path, size=None):
 def distance_between_two_caps(caps):
     cap_1, cap_2 = caps
     try:
-        if len(np.intersect1d(cap_1.point3d_id, cap_2.point3d_id)) == 0:
+        if len(np.int_ersect1d(cap_1.point3d_id, cap_2.point3d_id)) == 0:
             return 0.0
         pcd = cap_2.point_cloud_world
         extrin_cap_1 = cap_1.cam_pose.world_to_camera[0:3, :]

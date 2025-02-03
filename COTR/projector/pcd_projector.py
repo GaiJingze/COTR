@@ -175,7 +175,7 @@ class PointCloudProjector():
             pcd = pcd[pcd[:, 2].argsort()[::-1]]
             if not keep_z:
                 pcd = np.delete(pcd, [2], axis=1)
-        index_list = np.round(pcd[:, 0:2]).astype(np.int32)
+        index_list = np.round(pcd[:, 0:2]).astype(np.int_32)
         index_list[:, 0] = np.clip(index_list[:, 0], 0, size[1] - 1)
         index_list[:, 1] = np.clip(index_list[:, 1], 0, size[0] - 1)
         _h, _w, _c = *size, pcd.shape[-1] - 2

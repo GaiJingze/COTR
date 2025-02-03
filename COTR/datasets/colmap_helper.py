@@ -148,11 +148,11 @@ class ColmapAsciiReader():
                     elems = line.split()
                     elems = list(map(float, elems))
                     elems = np.array(elems).reshape(-1, 3)
-                    point3d_id = set(elems[elems[:, 2] != -1][:, 2].astype(np.int))
+                    point3d_id = set(elems[elems[:, 2] != -1][:, 2].astype(np.int_))
                     point3d_id = np.sort(np.array(list(point3d_id)))
                     xyi = elems[elems[:, 2] != -1]
                     xy = xyi[:, :2]
-                    idx = xyi[:, 2].astype(np.int)
+                    idx = xyi[:, 2].astype(np.int_)
                     p2d = Point2D(idx, xy)
                 else:
                     point3d_id = None
@@ -280,11 +280,11 @@ class ColmapWithDepthAsciiReader(ColmapAsciiReader):
                     elems = line.split()
                     elems = list(map(float, elems))
                     elems = np.array(elems).reshape(-1, 3)
-                    point3d_id = set(elems[elems[:, 2] != -1][:, 2].astype(np.int))
+                    point3d_id = set(elems[elems[:, 2] != -1][:, 2].astype(np.int_))
                     point3d_id = np.sort(np.array(list(point3d_id)))
                     xyi = elems[elems[:, 2] != -1]
                     xy = xyi[:, :2]
-                    idx = xyi[:, 2].astype(np.int)
+                    idx = xyi[:, 2].astype(np.int_)
                     p2d = Point2D(idx, xy)
                 else:
                     point3d_id = None

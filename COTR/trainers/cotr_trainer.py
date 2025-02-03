@@ -91,7 +91,7 @@ class COTRTrainer(base_trainer.BaseTrainer):
         imgs = utils.torch_img_to_np_img(imgs)
         out = []
         for img, corr in zip(imgs, corrs):
-            img = np.interp(img, [img.min(), img.max()], [0, 255]).astype(np.uint8)
+            img = np.int_erp(img, [img.min(), img.max()], [0, 255]).astype(np.uint8)
             img = Image.fromarray(img)
             draw = ImageDraw.Draw(img)
             corr *= np.array([constants.MAX_SIZE * 2, constants.MAX_SIZE, constants.MAX_SIZE * 2, constants.MAX_SIZE])
