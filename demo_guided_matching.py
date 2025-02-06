@@ -61,7 +61,7 @@ def main(opt):
     final_matches = np.array(final_matches)
     final_corrs = np.concatenate([kp_a[final_matches[:, 0]], kp_b[final_matches[:, 1]]], axis=1)
     _, mask = cv2.findFundamentalMat(final_corrs[:, :2], final_corrs[:, 2:], cv2.FM_RANSAC, ransacReprojThreshold=5, confidence=0.999999)
-    utils.visualize_corrs(img_a, img_b, final_corrs[np.where(mask[:, 0])], 'demo_guided_matching')
+    utils.visualize_corrs(img_a, img_b, final_corrs[np.where(mask[:, 0])], output_file_name='demo_guided_matching')
 
 
 if __name__ == "__main__":

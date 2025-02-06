@@ -43,7 +43,7 @@ def main(opt):
     t1 = time.time()
     print(f'COTR spent {t1-t0} seconds.')
 
-    utils.visualize_corrs(img_a, img_b, corrs, "demo_wbs")
+    utils.visualize_corrs(img_a, img_b, corrs, output_file_name='demo_wbs')
     plt.imshow(img_b)
     plt.scatter(kp_b[:,0], kp_b[:,1])
     plt.scatter(corrs[:,2], corrs[:,3])
