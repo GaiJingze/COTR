@@ -48,7 +48,7 @@ def main(opt):
     axarr[1].axis('off')
     plt.show()
 
-    os.makedirs('./results', exist_ok = True)
+    os.makedirs('./result', exist_ok = True)
     plt.savefig(f'./result/demo_face.png')
 
 

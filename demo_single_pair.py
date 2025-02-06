@@ -37,14 +37,14 @@ def main(opt):
     corrs = engine.cotr_corr_multiscale_with_cycle_consistency(img_a, img_b, np.linspace(0.5, 0.0625, 4), 1, max_corrs=opt.max_corrs, queries_a=None)
     t1 = time.time()
 
-    utils.visualize_corrs(img_a, img_b, corrs, "demo_single_pair")
+    utils.visualize_corrs(img_a, img_b, corrs, output_file_name='demo_single_pair')
     print(f'spent {t1-t0} seconds for {opt.max_corrs} correspondences.')
     dense = triangulate_corr(corrs, img_a.shape, img_b.shape)
     warped = cv2.remap(img_b, dense[..., 0].astype(np.float32), dense[..., 1].astype(np.float32), interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
     plt.imshow(warped / 255 * 0.5 + img_a / 255 * 0.5)
     plt.show()
 
-    os.makedirs('./results', exist_ok = True)
+    os.makedirs('./result', exist_ok = True)
     plt.savefig(f'./result/demo_single_pair.png')
 
 

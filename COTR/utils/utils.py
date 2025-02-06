@@ -272,5 +272,5 @@ def visualize_corrs(img1, img2, corrs, mask=None, output_file_name='visualize_co
     ax.set_axis_off()
     plt.show()
     
-    os.makedirs('./results', exist_ok = True)
+    os.makedirs('./result', exist_ok = True)
     plt.savefig(f'./result/{output_file_name}.png')

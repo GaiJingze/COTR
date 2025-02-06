@@ -50,7 +50,7 @@ def main(opt):
     plt.plot(np.stack([kp_b[:,0], corrs[:,2]], axis=1).T, np.stack([kp_b[:,1], corrs[:,3]], axis=1).T, color=[1,0,0])
     plt.show()
 
-    os.makedirs('./results', exist_ok = True)
+    os.makedirs('./result', exist_ok = True)
     plt.savefig(f'./result/demo_wbs.png')
 
 
