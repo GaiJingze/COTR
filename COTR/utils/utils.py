@@ -10,6 +10,7 @@ import torch
 import cv2
 import matplotlib.pyplot as plt
 import PIL
+import os
 
 
 '''
@@ -193,7 +194,7 @@ def safe_load_weights(model, saved_weights):
     print('weights safely loaded')
 
 
-def visualize_corrs(img1, img2, corrs, mask=None):
+def visualize_corrs(img1, img2, corrs, mask=None, output_file_name = "visualize_corrs"):
     if mask is None:
         mask = np.ones(len(corrs)).astype(bool)
 
@@ -269,3 +270,6 @@ def visualize_corrs(img1, img2, corrs, mask=None):
     ax = plt.gca()
     ax.set_axis_off()
     plt.show()
+    
+    os.makedirs('./results', exist_ok = True)
+    plt.savefig(f'./result/{output_file_name}.png')

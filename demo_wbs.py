@@ -43,12 +43,15 @@ def main(opt):
     t1 = time.time()
     print(f'COTR spent {t1-t0} seconds.')
 
-    utils.visualize_corrs(img_a, img_b, corrs)
+    utils.visualize_corrs(img_a, img_b, corrs, "demo_wbs")
     plt.imshow(img_b)
     plt.scatter(kp_b[:,0], kp_b[:,1])
     plt.scatter(corrs[:,2], corrs[:,3])
     plt.plot(np.stack([kp_b[:,0], corrs[:,2]], axis=1).T, np.stack([kp_b[:,1], corrs[:,3]], axis=1).T, color=[1,0,0])
     plt.show()
+
+    os.makedirs('./results', exist_ok = True)
+    plt.savefig(f'./result/demo_wbs.png')
 
 
 if __name__ == "__main__":
