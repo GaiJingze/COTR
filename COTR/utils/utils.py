@@ -194,7 +194,7 @@ def safe_load_weights(model, saved_weights):
     print('weights safely loaded')
 
 
-def visualize_corrs(img1, img2, corrs, mask=None, output_file_name = "visualize_corrs"):
+def visualize_corrs(img1, img2, corrs, mask=None, output_file_name = 'visualize_corrs'):
     if mask is None:
         mask = np.ones(len(corrs)).astype(bool)
 
@@ -236,6 +236,7 @@ def visualize_corrs(img1, img2, corrs, mask=None, output_file_name = "visualize_
     alpha = 1
 
     # Draw outliers
+    print("mask: ", mask)
     _x1 = x1[~mask]
     _x2p = x2p[~mask]
     xs = np.stack([_x1[:, 0], _x2p[:, 0]], axis=1).T
