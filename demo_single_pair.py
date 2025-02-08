@@ -37,6 +37,7 @@ def main(opt):
     corrs = engine.cotr_corr_multiscale_with_cycle_consistency(img_a, img_b, np.linspace(0.5, 0.0625, 4), 1, max_corrs=opt.max_corrs, queries_a=None)
     t1 = time.time()
 
+    print(corrs)
     utils.visualize_corrs(img_a, img_b, corrs, output_file_name='demo_single_pair')
     print(f'spent {t1-t0} seconds for {opt.max_corrs} correspondences.')
     dense = triangulate_corr(corrs, img_a.shape, img_b.shape)

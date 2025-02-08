@@ -24,9 +24,11 @@ class COTR(nn.Module):
         self.backbone = backbone
 
     def forward(self, samples: NestedTensor, queries):
+        print("forward!")
         if isinstance(samples, (list, torch.Tensor)):
             samples = nested_tensor_from_tensor_list(samples)
         features, pos = self.backbone(samples)
+        print(features)
 
         src, mask = features[-1].decompose()
         assert mask is not None
